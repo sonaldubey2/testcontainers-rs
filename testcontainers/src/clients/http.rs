@@ -16,7 +16,7 @@ use std::{
     fmt, io,
     sync::{Arc, RwLock},
 };
-use docker_credential::auth::DockerCredentials;
+use bollard::auth::DockerCredentials;
 /// A testcontainers client that uses HTTP to communicate with the docker daemon.
 ///
 /// This client provides an async-based interface.
