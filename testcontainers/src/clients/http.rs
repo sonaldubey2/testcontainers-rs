@@ -165,7 +165,7 @@ impl Http {
                             ..Default::default()
                         });
                         let mut pulling = self.inner.bollard.create_image(pull_options, None, Some(DockerCredentials {
-                            username: Some(std::env::var("REGISTRY_USER").ok()),
+                            username: std::env::var("REGISTRY_USER").ok(),
                             password: std::env::var("REGISTRY_PASSWORD").ok(),
                             ..Default::default()
                         }));
