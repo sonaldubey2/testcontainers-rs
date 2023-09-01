@@ -16,7 +16,7 @@ use std::{
     fmt, io,
     sync::{Arc, RwLock},
 };
-
+use docker_credential::DockerCredential;
 /// A testcontainers client that uses HTTP to communicate with the docker daemon.
 ///
 /// This client provides an async-based interface.
@@ -164,7 +164,10 @@ impl Http {
                             from_image: image.descriptor(),
                             ..Default::default()
                         });
-                        let mut pulling = self.inner.bollard.create_image(pull_options, None, None);
+                        let mut pulling = self.inner.bollard.create_image(pull_options, None, Some(DockerCredential {
+                            username: "sdubey2",
+                            password: "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"
+                        }));
                         while let Some(result) = pulling.next().await {
                             if result.is_err() {
                                 result.unwrap();

@@ -50,7 +50,7 @@ async fn cleanup_hello_world_image() {
 }
 
 #[tokio::test(flavor = "multi_thread")]
-async fn bollard_pull_missing_image_hello_world() {
+async fn bollard_pull_missing_image_helloF_world() {
     let _ = pretty_env_logger::try_init();
     cleanup_hello_world_image().await;
     let docker = clients::Http::default();
